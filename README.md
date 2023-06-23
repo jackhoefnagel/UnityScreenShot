@@ -1,5 +1,6 @@
 # UnityScreenShot
 A little tool to automate making screenshots for your Unity projects 
+
 Takes screenshots at three moments: 
 - when the Unity project is loaded
 - when you enter Play mode
