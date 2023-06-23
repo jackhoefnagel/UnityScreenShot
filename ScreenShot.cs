@@ -21,12 +21,12 @@ public class ScreenShot : MonoBehaviour
     static int photoIndex = 1;
     
     [InitializeOnEnterPlayMode]
-    public static void AddGameObjectToScene()
+    public static void InitializeOnEnterPlayMode ()
     {
-        EditorApplication.playModeStateChanged += ChangedPlayModeState;        
+        EditorApplication.playModeStateChanged += AddGameObjectToScene;        
     }
 
-    static void ChangedPlayModeState(PlayModeStateChange playModeStateChange)
+    static void AddGameObjectToScene(PlayModeStateChange playModeStateChange)
     {
         if (playModeStateChange.ToString().Equals("EnteredPlayMode"))
         {
@@ -60,7 +60,7 @@ public class ScreenShot : MonoBehaviour
     private static string GetNewScreenshotPath()
     {
         string applicationName = Application.productName;
-        string newPath = customFilePath + applicationName + "/screenshot" + photoIndex + ".png";        
+        string newPath = customFilePath +"/" + applicationName + "/screenshot" + photoIndex + ".png";        
         if (System.IO.File.Exists(newPath))
         {
             photoIndex++;
